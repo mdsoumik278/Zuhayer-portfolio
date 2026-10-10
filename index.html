@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MD. Zuhayer Anjum Soumik | WordPress Web Designer</title>
+    <meta name="description" content="Professional WordPress Web Designer specialized in Divi & Elementor. Custom websites that convert.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --dark: #0f172a;
+            --darker: #020617;
+            --card: #1e293b;
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+            --gradient: linear-gradient(135deg, #6366f1, #8b5cf6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--darker);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== Logo ===== */
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .logo i {
+            color: var(--primary);
+            font-size: 1.4rem;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 18px 0;
+            background: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .navbar.scrolled {
+            padding: 12px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo i {
+            color: var(--primary);
+            font-size: 1.4rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #fff;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: #fff;
+            transition: 0.3s;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 120px 24px 80px;
+            background: radial-gradient(ellipse at top right, rgba(99, 102, 241, 0.15), transparent 50%),
+                        radial-gradient(ellipse at bottom left, rgba(139, 92, 246, 0.1), transparent 50%),
+                        var(--darker);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.3), transparent),
+                radial-gradient(1px 1px at 60% 70%, rgba(255,255,255,0.2), transparent),
+                radial-gradient(1px 1px at 40% 50%, rgba(255,255,255,0.15), transparent);
+            background-size: 200px 200px;
+            animation: stars 20s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes stars {
+            from { transform: translateY(0); }
+            to { transform: translateY(-200px); }
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 24px;
+            padding: 48px 40px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+
+        .hero-content h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #fff, #c7d2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content h1 span {
+            display: block;
+            color: var(--primary);
+            -webkit-text-fill-color: var(--primary);
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .hero-content p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin: 20px 0 32px;
+            line-height: 1.7;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: #fff;
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(99, 102, 241, 0.5);
+        }
+
+        .btn-outline:hover {
+            background: rgba(99, 102, 241, 0.15);
+            border-color: var(--primary);
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image-wrapper {
+            width: 100%;
+            max-width: 480px;
+            height: 420px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, #1e1b4b, #312e81);
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(99, 102, 241, 0.3);
+            border: 3px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+            border-radius: 18px;
+        }
+
+        .code-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 40%, rgba(15, 23, 42, 0.85));
+            display: flex;
+            align-items: flex-end;
+            padding: 30px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            color: #a5b4fc;
+            line-height: 1.5;
+            overflow: hidden;
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 100px 24px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            margin: 16px auto 0;
+            border-radius: 2px;
+        }
+
+        /* ===== ABOUT ===== */
+        .about {
+            background: var(--dark);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-img {
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+            border: 3px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .about-img img {
+            width: 100%;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+            color: #fff;
+        }
+
+        .about-content p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            font-size: 1.05rem;
+        }
+
+        .skills {
+            margin-top: 32px;
+        }
+
+        .skill-item {
+            margin-bottom: 20px;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            border-radius: 10px;
+            background: var(--gradient);
+            width: 0;
+            transition: width 1.5s ease;
+        }
+
+        /* ===== SERVICES ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+        }
+
+        .service-card {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(99, 102, 241, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 1.8rem;
+            color: var(--primary);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--gradient);
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ===== PORTFOLIO ===== */
+        .portfolio {
+            background: var(--dark);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 28px;
+        }
+
+        .portfolio-item {
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            height: 260px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            cursor: pointer;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(15,23,42,0.95), transparent 60%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 24px;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay h4 {
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+        }
+
+        .portfolio-overlay p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ===== CONTACT CARDS ===== */
+        .contact {
+            background: var(--darker);
+        }
+
+        .contact-intro {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 50px;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 36px 24px;
+            text-align: center;
+            transition: all 0.4s;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+        }
+
+        .contact-card .icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.6rem;
+            color: #fff;
+        }
+
+        .contact-card.facebook .icon { background: #1877f2; }
+        .contact-card.instagram .icon { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .contact-card.whatsapp .icon { background: #25d366; }
+        .contact-card.email .icon { background: #ea4335; }
+        .contact-card.phone .icon { background: #6366f1; }
+
+        .contact-card h4 {
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .contact-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            word-break: break-all;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #020617;
+            padding: 60px 24px 30px;
+            border-top: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(99, 102, 241, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 18px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-image { order: -1; }
+            .hero-content { padding: 36px 28px; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .hero-btns { justify-content: center; }
+            .about-grid { grid-template-columns: 1fr; text-align: center; }
+            .about-img { max-width: 280px; margin: 0 auto; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--dark);
+                flex-direction: column;
+                padding: 100px 40px;
+                gap: 24px;
+                transition: right 0.4s;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+            }
+            .nav-links.active { right: 0; }
+            .hamburger { display: flex; }
+            .hero-content h1 { font-size: 1.9rem; }
+            .hero-content h1 span { font-size: 1.4rem; }
+            .section-title { font-size: 1.9rem; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .social-links { justify-content: center; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content { padding: 28px 20px; }
+            .btn { padding: 12px 20px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+
+            <a href="#home" class="logo">
+                <img src="1758596559869.png" alt="Logo"> Zuhayer
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" role="button" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>MD. Zuhayer Anjum<br><span>Soumik</span></h1>
+                <p>I'm a passionate <strong>WordPress Web Designer</strong> specialized in <strong>Divi 4/5</strong> & <strong>Elementor 4/5</strong> with 1+ years of experience creating high-converting, beautiful digital experiences.</p>
+                <div class="hero-btns">
+                    <a href="#portfolio" class="btn btn-primary"><i class="fas fa-briefcase"></i> View My Work</a>
+                    <a href="#contact" class="btn btn-outline"><i class="fas fa-paper-plane"></i> Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=500&fit=crop" alt="Code">
+                    <div class="code-overlay">
+                        .divi-module {<br>
+                        &nbsp;&nbsp;display: flex;<br>
+                        &nbsp;&nbsp;align-items: center;<br>
+                        }<br>
+                        .elementor-widget {<br>
+                        &nbsp;&nbsp;animation: fadeIn 0.6s;<br>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-img">
+
+<!-- My image -->
+                    <img src="1000292410.png" alt="Zuhayer Anjum Soumik">
+                </div>
+                <div class="about-content">
+                    <h3>Hello! I'm Zuhayer, a Professional WordPress Designer</h3>
+                    <p>I specialize in creating exceptional WordPress websites that are fast, accessible, visually stunning, and fully responsive. My passion lies in turning complex ideas into elegant, high-converting designs using Divi and Elementor.</p>
+                    <p>With over 1+ years of hands-on experience, I've helped startups, agencies, and businesses build professional online presence that drives real results.</p>
+                    
+                    <div class="skills">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>WordPress Development</span>
+                                <span>99%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="99%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Divi Theme (4 & 5)</span>
+                                <span>98%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="98%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Elementor (4 & 5)</span>
+                                <span>96%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="96%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>UI/UX Design</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">My Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fab fa-wordpress"></i></div>
+                    <h3>WordPress Development</h3>
+                    <p>Custom WordPress websites built from scratch with clean code, speed optimization, and SEO-ready structure.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-layer-group"></i></div>
+                    <h3>Divi Theme Expert</h3>
+                    <p>Advanced Divi 4 & Divi 5 designs — custom modules, dynamic content, and pixel-perfect layouts that convert.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+                    <h3>Elementor Design</h3>
+                    <p>Beautiful Elementor 4 & 5 websites with advanced animations, custom widgets, and fully responsive designs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Responsive & Mobile First</h3>
+                    <p>Every website I build looks perfect on all devices — mobile, tablet, and desktop.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <h3>Speed Optimization</h3>
+                    <p>Lightning-fast loading times with image optimization, caching, and clean code practices.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-search"></i></div>
+                    <h3>SEO Ready Websites</h3>
+                    <p>On-page SEO best practices so your website ranks better and brings organic traffic.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h2 class="section-title">My Portfolio</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="Doctor.jpg" alt="Project 1">
+                    <div class="portfolio-overlay">
+                        <h4>Business Website</h4>
+                        <p>Divi + Custom Design</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&h=400&fit=crop" alt="Project 2">
+                    <div class="portfolio-overlay">
+                        <h4>E-Commerce Store</h4>
+                        <p>Elementor + WooCommerce</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="Volt.png" alt="Project 3">
+                    <div class="portfolio-overlay">
+                        <h4>Agency Portfolio</h4>
+                        <p>Divi 5 Advanced Layout</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="contact-intro">Have a project in mind? Let's talk! Reach me directly through any of the platforms below.</p>
+            
+            <div class="contact-cards">
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/mdsoumik278" target="_blank" rel="noopener noreferrer" class="contact-card facebook">
+                    <div class="icon"><i class="fab fa-facebook-f"></i></div>
+                    <h4>Facebook</h4>
+                    <p>@mdsoumik278</p>
+                </a>
+
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/mdsoumik278/" target="_blank" rel="noopener noreferrer" class="contact-card instagram">
+                    <div class="icon"><i class="fab fa-instagram"></i></div>
+                    <h4>Instagram</h4>
+                    <p>@mdsoumik278</p>
+                </a>
+
+                <!-- WhatsApp -->
+                <a href="https://wa.me/8801768032798" target="_blank" rel="noopener noreferrer" class="contact-card whatsapp">
+                    <div class="icon"><i class="fab fa-whatsapp"></i></div>
+                    <h4>WhatsApp</h4>
+                    <p>+880 1768-032798</p>
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:mdsoumik278@gmail.com" class="contact-card email">
+                    <div class="icon"><i class="fas fa-envelope"></i></div>
+                    <h4>Email</h4>
+                    <p>mdsoumik278@gmail.com</p>
+                </a>
+
+                <!-- Phone -->
+                <a href="tel:+8801768032798" class="contact-card phone">
+                    <div class="icon"><i class="fas fa-phone-alt"></i></div>
+                    <h4>Phone</h4>
+                    <p>+880 1768-032798</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>MD. Zuhayer Anjum Soumik</h3>
+                <p>WordPress Web Designer specialized in Divi & Elementor. Creating digital experiences that make a difference.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/mdsoumik278" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/mdsoumik278/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/8801768032798" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/mdsoumik278" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#services">WordPress Development</a></li>
+                    <li><a href="#services">Divi Theme</a></li>
+                    <li><a href="#services">Elementor Design</a></li>
+                    <li><a href="#services">Speed Optimization</a></li>
+                    <li><a href="#services">SEO Ready Sites</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt" style="margin-right:8px;color:#6366f1"></i> Joypurhat Sadar, Joypurhat, Rajshahi, Bangladesh</li>
+                    <li><i class="fas fa-envelope" style="margin-right:8px;color:#6366f1"></i> mdsoumik278@gmail.com</li>
+                    <li><i class="fas fa-phone" style="margin-right:8px;color:#6366f1"></i> +880 1768-032798</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2025 MD. Zuhayer Anjum Soumik. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const bgMusic = document.getElementById('bgMusic');
+
+        if (bgMusic) {
+            bgMusic.volume = 0.4;
+            bgMusic.muted = false;
+
+            const startBackgroundMusic = () => {
+                if (bgMusic.paused) {
+                    bgMusic.play().catch(() => {});
+                }
+            };
+
+            document.addEventListener('DOMContentLoaded', startBackgroundMusic, { once: true });
+            window.addEventListener('load', startBackgroundMusic, { once: true });
+            bgMusic.addEventListener('ended', () => {
+                bgMusic.currentTime = 0;
+                bgMusic.play().catch(() => {});
+            });
+        }
+
+        if (navbar) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        }
+
+        const closeMobileMenu = () => {
+            if (navLinks) {
+                navLinks.classList.remove('active');
+            }
+            if (hamburger) {
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        };
+
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', () => {
+                const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+                hamburger.setAttribute('aria-expanded', String(!isExpanded));
+                navLinks.classList.toggle('active');
+            });
+
+            hamburger.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    hamburger.click();
+                }
+            });
+        }
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === `#${current}`) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        const skillBars = document.querySelectorAll('.skill-progress');
+        const animateSkills = () => {
+            skillBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                if (width) {
+                    bar.style.width = width;
+                }
+            });
+        };
+
+        const aboutSection = document.querySelector('.about');
+        if (aboutSection && 'IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateSkills();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            observer.observe(aboutSection);
+        } else {
+            animateSkills();
+        }
+    </script>
+</body>
+</html>
